@@ -23,6 +23,7 @@ brew "yarn"
 brew "zlib"
 brew "zsh"
 brew "zsh-completions"
+brew "starship"
 
 cask "dotnet-sdk"
 cask "insomnia"
