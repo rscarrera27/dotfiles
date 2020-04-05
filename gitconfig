@@ -11,7 +11,7 @@
     gpgsign = true
 [alias]
 	ck = "!git checkout $(git bselect)"
-    bselect = "! # select branch with preview; \n\
+    bselect = "!select branch with preview; \n\
         f() { \
             _height=$(stty size | awk '{print $1}');\
             git branch | egrep -v '^\\*' | fzf --preview \"git l {1} | head -n $_height\"; \
@@ -48,7 +48,19 @@
     b = branch
     c = commit
 	s = status -s
-	l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+	l = "log \
+        --color --graph --decorate \
+        --date=format:'%Y-%m-%d' \
+        --abbrev-commit \
+        --pretty=format:'%C(red)%h%C(auto)%d %s %C(green)(%cr)%C(bold blue) %an'"
+    alias = "!# Prints all aliases.;\n\
+        git config --list \
+        | egrep '^alias.+' \
+        | sed -e 's/^alias\\.//' \
+        | sed -e 's/^[^=]*=/\\'$'\\033[31m&\\033[(B\\033[m/' \
+        | column -t -s'=' \
+        | sed 's/!#* *//; s/;$//' \
+        | cut -c1-85"
 [core]
 	precomposeunicode = true
 	quotepath = false
