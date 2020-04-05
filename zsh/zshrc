@@ -1,0 +1,26 @@
+eval "$(starship init zsh)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+export PATH="$PYENV_ROOT/bin:$HOME/.cargo/bin:$PATH:$HOME/.poetry/bin:$HOME/.toolbox"
+export ZSH="/Users/lewis/.oh-my-zsh"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export NVM_DIR="$HOME/.nvm"
+
+plugins=(
+  git
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+)
+
+source $ZSH/oh-my-zsh.sh
+
+alias zshrc="code ~/.zshrc"
+
+alias charm="pycharm ."
+alias lion="clion ."
+alias land="goland ."
+
+alias wiki="code $HOME/Documents/GitHub/wiki.seonghyeon.dev"
+alias blog="code $HOME/Documents/GitHub/seonghyeon.dev"
