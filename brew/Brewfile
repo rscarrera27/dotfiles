@@ -33,6 +33,10 @@ cask "iterm2"
 cask "gpg-suite"
 cask "font-jetbrains-mono"
 cask "google-chrome"
+cask "visual-studio-code"
+cask "gitkraken"
+cask "github"
+
 
 mas "Bear", id: 1091189122
 mas "Keynote", id: 409183694
