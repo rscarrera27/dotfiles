@@ -9,11 +9,15 @@ export PATH="$PYENV_ROOT/bin:$HOME/.cargo/bin:$PATH:$HOME/.poetry/bin:$HOME/.too
 export ZSH="$HOME/.oh-my-zsh"
 export CPPFLAGS="-I$(brew --prefix zlib)/include" 
 export LDFLAGS="-L$(brew --prefix zlib)/lib" 
+export CFLAGS="-I$(brew --prefix openssl)/include" 
+export CPPFLAGS="-I$(brew --prefix openssl)/include" 
+export LDFLAGS="-L$(brew --prefix openssl)/lib"
 
 plugins=(
   git
   zsh-syntax-highlighting
   zsh-autosuggestions
+  poetry
 )
 
 source $ZSH/oh-my-zsh.sh

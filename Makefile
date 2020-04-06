@@ -1,9 +1,10 @@
 BREW := /usr/local/bin/brew
-HASKELL = /Users/lewis/.ghcup/bin/ghcup
-RUST := /Users/lewis/.cargo/bin/rustup
+HASKELL = $(HOME)/.ghcup/bin/ghcup
+RUST := $(HOME))/.cargo/bin/rustup
+POETRY := $(HOME)/.poetry/bin/poetry
 
 .PHONY: all 
-all: brew zsh git rust
+all: brew zsh git poetry rust
 
 
 .PHONY: brew
@@ -48,3 +49,12 @@ rust: | $(RUST)
 
 $(RUST):
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+.PHONY: poetry
+poetry: | $(POETRY)
+	poetry self update
+	mkdir -p $ZSH/plugins/poetry
+	poetry completions zsh > ~/.zfunc/_poetry
+
+$(POETRY):
+	curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
