@@ -6,7 +6,7 @@
     gpgsign = true
 [alias]
 	ck = "!git checkout $(git bselect)"
-    bselect = "!select branch with preview; \n\
+    bselect = "!# select branch with preview; \n\
         f() { \
             _height=$(stty size | awk '{print $1}');\
             git branch | egrep -v '^\\*' | fzf --preview \"git l {1} | head -n $_height\"; \
@@ -19,7 +19,7 @@
         join -t' ' -a 1 $fileA $fileB | awk '{print $2, \"(+\"$3 \",-\"$4\")\", $1}' | sed 's/(+,-)/./; s/^\\([^?]\\) *\\./\\1 STAGED/' | column -t -s' ' ; \
         rm -f $fileA $fileB; \
     "
-	diff-select = "!# Select changed files to add them.;\n\
+    diff-select = "!# Select changed files to add them.;\n\
         f() { \
             git diff-info \
             | egrep -v '[^?] *STAGED ' \
