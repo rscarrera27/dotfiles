@@ -53,7 +53,7 @@ $(RUST):
 .PHONY: poetry
 poetry: | $(POETRY)
 	poetry self update
-	mkdir -p $ZSH/plugins/poetry
+	mkdir -p $(ZSH)/plugins/poetry
 	poetry completions zsh > ~/.zfunc/_poetry
 
 $(POETRY):
