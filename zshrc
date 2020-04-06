@@ -19,6 +19,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 alias zshrc="code ~/.zshrc"
+alias cls="clear"
 
 alias charm="pycharm ."
 alias lion="clion ."
