@@ -31,8 +31,9 @@ alias cls="clear"
 alias charm="pycharm ."
 alias lion="clion ."
 alias land="goland ."
+alias please="sudo"
 
 alias wiki="code $HOME/Documents/GitHub/wiki.seonghyeon.dev"
 alias blog="code $HOME/Documents/GitHub/seonghyeon.dev"
-
+alias dotfiles="code $HOME/Documents/GitHub/dotfiles"
 autoload -Uz compinit && compinit
