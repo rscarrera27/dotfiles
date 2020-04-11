@@ -9,6 +9,9 @@ export PATH="$PYENV_ROOT/bin:$HOME/.cargo/bin:$PATH:$HOME/.poetry/bin:$HOME/.too
 export ZSH="$HOME/.oh-my-zsh"
 export CPPFLAGS="-I$(brew --prefix zlib)/include" 
 export LDFLAGS="-L$(brew --prefix zlib)/lib" 
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 export CFLAGS="-I$(brew --prefix openssl)/include" 
 export CPPFLAGS="-I$(brew --prefix openssl)/include" 
 export LDFLAGS="-L$(brew --prefix openssl)/lib"

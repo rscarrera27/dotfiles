@@ -26,6 +26,7 @@ brew "zsh-completions"
 brew "starship"
 brew "fzf"
 brew "pygments"
+brew "nvm"
 
 cask "dotnet-sdk"
 cask "insomnia"
