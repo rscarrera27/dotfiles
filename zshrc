@@ -36,4 +36,10 @@ alias please="sudo"
 alias wiki="code $HOME/Documents/GitHub/wiki.seonghyeon.dev"
 alias blog="code $HOME/Documents/GitHub/seonghyeon.dev"
 alias dotfiles="code $HOME/Documents/GitHub/dotfiles"
+
+function fd {
+  DIR=`find * -maxdepth 0 -type d -print 2> /dev/null | fzf-tmux --preview "tree {} -L 3"` \
+    && cd "$DIR"
+}
+
 autoload -Uz compinit && compinit
