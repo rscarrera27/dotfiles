@@ -25,6 +25,7 @@ zsh: ## Install the zsh related dotfiles.
 
 .PHONY: git
 git: ## Install git configs.
+	ln -sfn $(CURDIR)/gitalias $(HOME)/.gitalias
 	@cp $(CURDIR)/gitconfig $(HOME)/.gitconfig
 	@read -p "Enter your name: " git_name; \
 		sed -i -e "s/{{GIT_NAME}}/$$git_name/g" $(HOME)/.gitconfig

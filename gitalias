@@ -1,0 +1,55 @@
+[alias]
+	ck = "!git checkout $(git bselect)"
+    bselect = "!# select branch with preview; \n\
+        f() { \
+            _height=$(stty size | awk '{print $1}');\
+            git branch | egrep -v '^\\*' | fzf --preview \"git l {1} | head -n $_height\"; \
+        }; f"
+	diff-info = "!# Print diff report.;\n\
+        fileA=/tmp/git-s-$(uuidgen); \
+        fileB=/tmp/git-diff-$(uuidgen); \
+        git s | awk '{print $2,$1}' > $fileA; \
+        git diff --numstat | awk '{print $3,$1,$2}' > $fileB; \
+        join -t' ' -a 1 $fileA $fileB | awk '{print $2, \"(+\"$3 \",-\"$4\")\", $1}' | sed 's/(+,-)/./; s/^\\([^?]\\) *\\./\\1 STAGED/' | column -t -s' ' ; \
+        rm -f $fileA $fileB; \
+    "
+    diff-select = "!# Select changed files to add them.;\n\
+        f() { \
+            git diff-info \
+            | egrep -v '[^?] *STAGED ' \
+            | fzf -m --header \"$(git diff --shortstat)\" --preview \
+                \"if [[ {1} == '??' ]]; then pygmentize {3}; else git diff --color=always {3}; fi\" \
+            | awk '{print $3}'; \
+        }; f"
+    diff-unselect = "!# Select staged files to unstage them.;\n\
+        f() { \
+            git diff-info \
+            | egrep '[^?] *STAGED ' \
+            | fzf -m --header \"$(git diff --shortstat)\" --preview \
+                \"if [[ {1} == '??' ]]; then pygmentize {3}; else git diff --color=always --cached {3}; fi\" \
+            | awk '{print $3}'; \
+        }; f"
+    a = "!# Select files and Add them.;\n\
+        git diff-select | xargs git add"
+    aa = "add *"
+	yolo = push --force
+	unstage = "!# Select staged files and Unstage them.;\n\
+        git diff-unselect | xargs git reset HEAD"
+    b = branch
+    c = commit
+    cm = commit -m
+    ca = commit --amend
+	s = status -s
+	l = "log \
+        --color --graph --decorate \
+        --date=format:'%Y-%m-%d' \
+        --abbrev-commit \
+        --pretty=format:'%C(red)%h%C(auto)%d %s %C(green)(%cr)%C(bold blue) %an'"
+    alias = "!# Prints all aliases.;\n\
+        git config --list \
+        | egrep '^alias.+' \
+        | sed -e 's/^alias\\.//' \
+        | sed -e 's/^[^=]*=/\\'$'\\033[31m&\\033[(B\\033[m/' \
+        | column -t -s'=' \
+        | sed 's/!#* *//; s/;$//' \
+        | cut -c1-85"
