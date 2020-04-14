@@ -37,11 +37,14 @@
         }; f"
     a = "!# Select files and Add them.;\n\
         git diff-select | xargs git add"
+    aa = "add *"
 	yolo = push --force
 	unstage = "!# Select staged files and Unstage them.;\n\
         git diff-unselect | xargs git reset HEAD"
     b = branch
     c = commit
+    cm = commit -m
+    ca = commit --amend
 	s = status -s
 	l = "log \
         --color --graph --decorate \
