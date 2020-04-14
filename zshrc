@@ -25,11 +25,13 @@ source $ZSH/oh-my-zsh.sh
 
 alias zshrc="code ~/.zshrc"
 alias cls="clear"
+alias loadnvm=". $(brew --prefix nvm)/nvm.sh"
 
 alias charm="pycharm ."
 alias lion="clion ."
 alias land="goland ."
 alias please="sudo"
+alias cat="bat"
 
 alias wiki="code $HOME/Documents/GitHub/wiki.seonghyeon.dev"
 alias blog="code $HOME/Documents/GitHub/seonghyeon.dev"
