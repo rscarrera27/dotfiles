@@ -27,6 +27,8 @@ brew "starship"
 brew "fzf"
 brew "pygments"
 brew "nvm"
+brew "exa"
+brew "bat"
 
 cask "dotnet-sdk"
 cask "insomnia"
