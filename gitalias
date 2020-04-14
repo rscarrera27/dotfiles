@@ -32,6 +32,7 @@
     a = "!# Select files and Add them.;\n\
         git diff-select | xargs git add"
     aa = "add *"
+    ap = "add -p"
 	yolo = push --force
 	unstage = "!# Select staged files and Unstage them.;\n\
         git diff-unselect | xargs git reset HEAD"
