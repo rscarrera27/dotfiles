@@ -364,6 +364,8 @@
 	<false/>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
+	<key>HideMenuBarInFullscreen</key>
+	<true/>
 	<key>HideScrollbar</key>
 	<true/>
 	<key>HideTab</key>
@@ -375,9 +377,13 @@
 	<key>NSFontPanelAttributes</key>
 	<string>1, 4</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/Documents/GitHub/dotfiles</string>
+	<string>~</string>
+	<key>NSNavLastUserSetHideExtensionButtonState</key>
+	<false/>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{799, 448}</string>
+	<key>NSNavPanelExpandedSizeForSaveMode</key>
+	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -424,13 +430,13 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>929 113 445 338 0 0 1440 877 </string>
 	<key>NSWindow Frame NSNavPanelAutosaveName</key>
-	<string>560 469 799 448 0 0 1920 1057 </string>
+	<string>785 669 347 181 0 0 1920 1057 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>410 376 620 392 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>695 330 796 486 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 603 584 454 0 0 1920 1057 </string>
+	<string>0 54 780 469 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>576 148 584 454 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
@@ -1284,7 +1290,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>C4D515FC-01CE-49B5-B054-E7764ACE6192</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>5</integer>
+	<integer>6</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
 	<real>604200350.92205298</real>
 	<key>NoSyncOnboardingWindowHasBeenShown</key>
@@ -2067,7 +2073,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-04-04T23:48:16Z</date>
+	<date>2020-04-14T04:02:49Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SeparateStatusBarsPerPane</key>
@@ -2078,6 +2084,8 @@
 	<integer>1</integer>
 	<key>TabStyleWithAutomaticOption</key>
 	<integer>5</integer>
+	<key>TabViewType</key>
+	<integer>0</integer>
 	<key>TerminalMargin</key>
 	<integer>12</integer>
 	<key>TerminalVMargin</key>
