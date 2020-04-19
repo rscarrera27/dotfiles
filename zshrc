@@ -25,6 +25,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias zshrc="code ~/.zshrc"
 alias cls="clear"
+alias g="git"
 alias loadnvm=". $(brew --prefix nvm)/nvm.sh"
 
 alias charm="pycharm ."
@@ -36,6 +37,10 @@ alias cat="bat"
 alias wiki="code $HOME/Documents/GitHub/wiki.seonghyeon.dev"
 alias blog="code $HOME/Documents/GitHub/seonghyeon.dev"
 alias dotfiles="code $HOME/Documents/GitHub/dotfiles"
+alias playground="code $HOME/Documents/GitHub/playground"
+
+alias ..="cd .."
+alias ...="cd ../.."
 
 function fd {
   DIR=`find * -maxdepth 0 -type d -print 2> /dev/null | fzf-tmux --preview "tree {} -L 3"` \
