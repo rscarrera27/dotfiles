@@ -42,6 +42,9 @@ cask "google-chrome"
 cask "visual-studio-code"
 cask "gitkraken"
 cask "github"
+cask "authy"
+cask "docker"
+cask "kitematic"
 
 
 mas "Bear", id: 1091189122
@@ -56,3 +59,5 @@ mas "Pages", id: 409201541
 mas "RunCat", id: 1429033973
 mas "Slack", id: 803453959
 mas "Twitter", id: 1482454543
+mas "Todoist", id: 585829637
+mas "1Password 7", id: 1333542190
