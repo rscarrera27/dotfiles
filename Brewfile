@@ -45,6 +45,7 @@ cask "github"
 cask "authy"
 cask "docker"
 cask "kitematic"
+cask "karabiner-elements"
 
 
 mas "Bear", id: 1091189122
