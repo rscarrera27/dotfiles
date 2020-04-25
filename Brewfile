@@ -29,6 +29,7 @@ brew "pygments"
 brew "nvm"
 brew "exa"
 brew "bat"
+brew "awscli"
 
 cask "dotnet-sdk"
 cask "insomnia"
