@@ -10,12 +10,11 @@ all: brew zsh git poetry rust
 .PHONY: brew
 brew: | $(BREW) ## Install brew if it isn't installed, then update brew 
 	ln  -sfn $(CURDIR)/Brewfile $(HOME)/Brewfile
-	brew tap homebrew/bundle
 	brew bundle
 
 $(BREW): ## Install brew if it's not installed already
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-	$(HOME)/.zshrc
+	brew tap homebrew/bundle
 
 .PHONY: zsh 
 zsh: ## Install the zsh related dotfiles.
@@ -48,7 +47,6 @@ haskell: | $(HASKELL)
 
 $(HASKELL):
 	curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
-	source $(HOME)/.zshrc
 
 .PHONY: rust
 rust: | $(RUST)
@@ -59,7 +57,6 @@ rust: | $(RUST)
 
 $(RUST):
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-	source $(HOME)/.zshrc
 
 .PHONY: poetry
 poetry: | $(POETRY)
@@ -69,4 +66,3 @@ poetry: | $(POETRY)
 
 $(POETRY):
 	curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
-	source $(HOME)/.zshrc
