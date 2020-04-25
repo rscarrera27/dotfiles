@@ -33,24 +33,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsecrets
-
-alias cls="clear"
-alias g="git"
-alias please="sudo"
-alias cat="bat"
-
-alias charm="pycharm ."
-alias lion="clion ."
-alias land="goland ."
-
-alias zshrc="code ~/.zshrc"
-alias wiki="code $HOME/Documents/GitHub/wiki.seonghyeon.dev"
-alias blog="code $HOME/Documents/GitHub/seonghyeon.dev"
-alias dotfiles="code $HOME/Documents/GitHub/dotfiles"
-alias playground="code $HOME/Documents/GitHub/playground"
-
-alias ..="cd .."
-alias ...="cd ../.."
+source $HOME/.zalias
 
 autoload -Uz ~/.zfunc/**/*
 autoload -Uz compinit && compinit

@@ -15,15 +15,17 @@ brew: | $(BREW) ## Install brew if it isn't installed, then update brew
 
 $(BREW): ## Install brew if it's not installed already
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	$(HOME)/.zshrc
 
 .PHONY: zsh 
 zsh: ## Install the zsh related dotfiles.
 	@echo "Starting zsh Setup..."
-	mkdir -p ~/.zfunc
+	mkdir -p $(HOME)/.zfunc
 	@cp $(CURDIR)/zsecrets $(HOME)/.zsecrets
 	@read -p "Enter your GitHub token: " github_token; \
 		sed -i -e "s/{{GITHUB_TOKEN}}/$$github_token/g" $(HOME)/.zsecrets
 	ln -sfn $(CURDIR)/zshrc $(HOME)/.zshrc
+	ln -sfn $(CURDIR)/zalias $(HOME)/.zalias
 	ln -sfn $(CURDIR)/fd $(HOME)/.zfunc/fd
 	git clone https://github.com/davidparsson/zsh-pyenv-lazy.git $(HOME)/.oh-my-zsh/custom/plugins/pyenv-lazy 2>/dev/null ||:
 	git clone https://github.com/lukechilds/zsh-nvm $(HOME)/.oh-my-zsh/custom/plugins/zsh-nvm 2>/dev/null ||:
@@ -46,6 +48,7 @@ haskell: | $(HASKELL)
 
 $(HASKELL):
 	curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+	source $(HOME)/.zshrc
 
 .PHONY: rust
 rust: | $(RUST)
@@ -56,6 +59,7 @@ rust: | $(RUST)
 
 $(RUST):
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+	source $(HOME)/.zshrc
 
 .PHONY: poetry
 poetry: | $(POETRY)
@@ -65,3 +69,4 @@ poetry: | $(POETRY)
 
 $(POETRY):
 	curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+	source $(HOME)/.zshrc
