@@ -1,39 +1,49 @@
 eval "$(starship init zsh)"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
-fpath+=~/.zfunc
+export ZSH="$HOME/.oh-my-zsh"
+
+export NVM_DIR="$HOME/.nvm"
+export NVM_LAZY_LOAD=true
 
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$HOME/.cargo/bin:$PATH:$HOME/.poetry/bin:$HOME/.toolbox"
-export ZSH="$HOME/.oh-my-zsh"
-export CPPFLAGS="-I$(brew --prefix zlib)/include" 
-export LDFLAGS="-L$(brew --prefix zlib)/lib" 
-export NVM_DIR="$HOME/.nvm"
-export CFLAGS="-I$(brew --prefix openssl)/include" 
-export CPPFLAGS="-I$(brew --prefix openssl)/include" 
-export LDFLAGS="-L$(brew --prefix openssl)/lib"
+export ZSH_PYENV_LAZY_VIRTUALENV=true
+
+fpath=(
+  $fpath
+  $HOME/.zfunc
+)
+
+path=(
+  $path
+  $PYENV_ROOT/bin
+  $HOME/.cargo/bin
+  $HOME/.poetry/bin
+  $HOME/.toolbox
+)
 
 plugins=(
   git
   zsh-syntax-highlighting
   zsh-autosuggestions
   poetry
+  zsh-nvm
+  pyenv
+  pyenv-lazy
 )
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/.zsecrets
 
-alias zshrc="code ~/.zshrc"
 alias cls="clear"
 alias g="git"
-alias loadnvm=". $(brew --prefix nvm)/nvm.sh"
+alias please="sudo"
+alias cat="bat"
 
 alias charm="pycharm ."
 alias lion="clion ."
 alias land="goland ."
-alias please="sudo"
-alias cat="bat"
 
+alias zshrc="code ~/.zshrc"
 alias wiki="code $HOME/Documents/GitHub/wiki.seonghyeon.dev"
 alias blog="code $HOME/Documents/GitHub/seonghyeon.dev"
 alias dotfiles="code $HOME/Documents/GitHub/dotfiles"
@@ -42,9 +52,5 @@ alias playground="code $HOME/Documents/GitHub/playground"
 alias ..="cd .."
 alias ...="cd ../.."
 
-function fd {
-  DIR=`find * -maxdepth 0 -type d -print 2> /dev/null | fzf-tmux --preview "tree {} -L 3"` \
-    && cd "$DIR"
-}
-
+autoload -Uz ~/.zfunc/**/*
 autoload -Uz compinit && compinit

@@ -20,7 +20,13 @@ $(BREW): ## Install brew if it's not installed already
 zsh: ## Install the zsh related dotfiles.
 	@echo "Starting zsh Setup..."
 	mkdir -p ~/.zfunc
+	@cp $(CURDIR)/zsecrets $(HOME)/.zsecrets
+	@read -p "Enter your GitHub token: " github_token; \
+		sed -i -e "s/{{GITHUB_TOKEN}}/$$github_token/g" $(HOME)/.zsecrets
 	ln -sfn $(CURDIR)/zshrc $(HOME)/.zshrc
+	ln -sfn $(CURDIR)/fd $(HOME)/.zfunc/fd
+	git clone https://github.com/davidparsson/zsh-pyenv-lazy.git $(HOME)/.oh-my-zsh/custom/plugins/pyenv-lazy 2>/dev/null ||:
+	git clone https://github.com/lukechilds/zsh-nvm $(HOME)/.oh-my-zsh/custom/plugins/zsh-nvm 2>/dev/null ||:
 	@echo "Done! (zsh)\n"
 
 .PHONY: git
