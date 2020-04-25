@@ -55,7 +55,7 @@ $(RUST):
 poetry: | $(POETRY)
 	poetry self update
 	mkdir -p $(ZSH)/plugins/poetry
-	poetry completions zsh > ~/.zfunc/_poetry
+	poetry completions zsh > $(ZSH)/plugins/poetry/_poetry
 
 $(POETRY):
 	curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
