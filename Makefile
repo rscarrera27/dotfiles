@@ -26,6 +26,7 @@ zsh: ## Install the zsh related dotfiles.
 	ln -sfn $(CURDIR)/zshrc $(HOME)/.zshrc
 	ln -sfn $(CURDIR)/zalias $(HOME)/.zalias
 	ln -sfn $(CURDIR)/fd $(HOME)/.zfunc/fd
+	ln -sfn $(CURDIR)/gi $(HOME)/.zfunc/gi
 	git clone https://github.com/davidparsson/zsh-pyenv-lazy.git $(HOME)/.oh-my-zsh/custom/plugins/pyenv-lazy 2>/dev/null ||:
 	git clone https://github.com/lukechilds/zsh-nvm $(HOME)/.oh-my-zsh/custom/plugins/zsh-nvm 2>/dev/null ||:
 	@echo "Done! (zsh)\n"
