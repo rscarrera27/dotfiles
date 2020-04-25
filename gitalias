@@ -45,7 +45,7 @@
         --color --graph --decorate \
         --date=format:'%Y-%m-%d' \
         --abbrev-commit \
-        --pretty=format:'%C(red)%h%C(auto)%d %s %C(green)(%cr)%C(bold blue) %an'"
+        --pretty=format:'%C(red)%h%C(auto)%d %s %C(green)(%cr)%C(bold blue) %an <%ae> %C(green) %GS'"
     alias = "!# Prints all aliases.;\n\
         git config --list \
         | egrep '^alias.+' \
