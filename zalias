@@ -6,6 +6,7 @@ alias cat="bat"
 alias charm="pycharm ."
 alias lion="clion ."
 alias land="goland ."
+alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 
 alias zshrc="code ~/.zshrc"
 alias wiki="code $HOME/Documents/GitHub/wiki.seonghyeon.dev"
