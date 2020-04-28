@@ -18,7 +18,7 @@
             git diff-info \
             | egrep -v '[^?] *STAGED ' \
             | fzf -m --header \"$(git diff --shortstat)\" --preview \
-                \"if [[ {1} == '??' ]]; then pygmentize {3}; else git diff --color=always {3}; fi\" \
+                \"if [[ {1} == '??' ]]; then bat --style=numbers --color=always {3}; else git diff {3} | bat --style=numbers --color=always; fi\" \
             | awk '{print $3}'; \
         }; f"
     diff-unselect = "!# Select staged files to unstage them.;\n\
@@ -26,7 +26,7 @@
             git diff-info \
             | egrep '[^?] *STAGED ' \
             | fzf -m --header \"$(git diff --shortstat)\" --preview \
-                \"if [[ {1} == '??' ]]; then pygmentize {3}; else git diff --color=always --cached {3}; fi\" \
+                \"if [[ {1} == '??' ]]; then bat --style=numbers --color=always {3}; else git diff {3} | bat --style=numbers --color=always; fi\" \
             | awk '{print $3}'; \
         }; f"
     a = "!# Select files and Add them.;\n\
