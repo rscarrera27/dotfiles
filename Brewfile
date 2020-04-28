@@ -30,6 +30,7 @@ brew "nvm"
 brew "exa"
 brew "bat"
 brew "awscli"
+brew "jq"
 
 cask "dotnet-sdk"
 cask "insomnia"
