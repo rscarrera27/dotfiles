@@ -2,6 +2,7 @@ BREW := /usr/local/bin/brew
 HASKELL = $(HOME)/.ghcup/bin/ghcup
 RUST := $(HOME))/.cargo/bin/rustup
 POETRY := $(HOME)/.poetry/bin/poetry
+OHMYZSH := $(HOME)/.oh-my-zsh
 
 .PHONY: all 
 all: brew zsh git poetry rust
@@ -17,7 +18,7 @@ $(BREW): ## Install brew if it's not installed already
 	brew tap homebrew/bundle
 
 .PHONY: zsh 
-zsh: ## Install the zsh related dotfiles.
+zsh: | $(OHMYZSH) ## Install the zsh related dotfiles.
 	@echo "Starting zsh Setup..."
 	mkdir -p $(HOME)/.zfunc
 	@cp $(CURDIR)/zsecrets $(HOME)/.zsecrets
@@ -27,9 +28,14 @@ zsh: ## Install the zsh related dotfiles.
 	ln -sfn $(CURDIR)/zalias $(HOME)/.zalias
 	ln -sfn $(CURDIR)/fd $(HOME)/.zfunc/fd
 	ln -sfn $(CURDIR)/gi $(HOME)/.zfunc/gi
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $(HOME)/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting 2>/dev/null ||:
+	git clone git://github.com/zsh-users/zsh-autosuggestions $(HOME)/.oh-my-zsh/custom/plugins/zsh-autosuggestions 2>/dev/null ||:
 	git clone https://github.com/davidparsson/zsh-pyenv-lazy.git $(HOME)/.oh-my-zsh/custom/plugins/pyenv-lazy 2>/dev/null ||:
 	git clone https://github.com/lukechilds/zsh-nvm $(HOME)/.oh-my-zsh/custom/plugins/zsh-nvm 2>/dev/null ||:
 	@echo "Done! (zsh)\n"
+
+$(OHMYZSH):
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 .PHONY: git
 git: ## Install git configs.
