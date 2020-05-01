@@ -40,7 +40,7 @@
     c = commit
     cm = commit -m
     ca = commit --amend
-	s = status -s
+	s = status -s -uall
 	l = "log \
         --color --graph --decorate \
         --date=format:'%Y-%m-%d' \
