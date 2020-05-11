@@ -31,6 +31,7 @@ brew "exa"
 brew "bat"
 brew "awscli"
 brew "jq"
+brew "fortune"
 
 cask "dotnet-sdk"
 cask "insomnia"

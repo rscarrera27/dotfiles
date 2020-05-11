@@ -1,4 +1,5 @@
 eval "$(starship init zsh)"
+eval "fortune"
 
 export ZSH="$HOME/.oh-my-zsh"
 
