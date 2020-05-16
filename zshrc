@@ -20,6 +20,7 @@ path=(
   $HOME/.cargo/bin
   $HOME/.poetry/bin
   $HOME/.toolbox
+  $HOME
 )
 
 plugins=(
