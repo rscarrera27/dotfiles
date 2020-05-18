@@ -39,4 +39,4 @@ source $HOME/.zalias
 autoload -Uz ~/.zfunc/**/*
 autoload -Uz compinit && compinit
 
-eval "fortune"
+eval "fortune ~/fortunes"
