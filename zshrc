@@ -1,5 +1,4 @@
 eval "$(starship init zsh)"
-eval "fortune"
 
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -39,3 +38,5 @@ source $HOME/.zalias
 
 autoload -Uz ~/.zfunc/**/*
 autoload -Uz compinit && compinit
+
+eval "fortune"
