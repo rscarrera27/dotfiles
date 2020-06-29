@@ -36,6 +36,20 @@
 	yolo = push --force
 	unstage = "!# Select staged files and Unstage them.;\n\
         git diff-unselect | xargs git reset HEAD"
+    sync = "!# Sync with a branch with the same name in the remote repo.;\n\
+        remote=$( \
+            { \
+                git remote -v | egrep '^(origin|upstream)\\s'; \
+                git remote -v | egrep -v '^(origin|upstream)\\s' | sort; \
+            } \
+            | awk '{print $1, $2}' | uniq \
+            | column -t \
+            | fzf | awk '{print $1}' \
+        ); \
+        curr_b=$(git branch | awk '/^\\*/{print $2}'); \
+        if ! [ -z $remote ]; then \
+            git fetch $remote && git reset --hard $remote/$curr_b; \
+        fi"
     b = branch
     c = commit
     cm = commit -m
