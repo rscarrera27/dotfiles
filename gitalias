@@ -1,9 +1,15 @@
 [alias]
 	ck = "!git checkout $(git bselect)"
+    ckr = "!git checkout -t $(git rbselect)"
     bselect = "!# select branch with preview; \n\
         f() { \
             _height=$(stty size | awk '{print $1}');\
             git branch | egrep -v '^\\*' | fzf --preview \"git l {1} | head -n $_height\"; \
+        }; f"
+    rbselect = "!# select branch with preview; \n\
+        f() { \
+            _height=$(stty size | awk '{print $1}');\
+            git branch -r | egrep -v '^\\*' | fzf --preview \"git l {1} | head -n $_height\"; \
         }; f"
 	diff-info = "!# Print diff report.;\n\
         fileA=/tmp/git-s-$(uuidgen); \
