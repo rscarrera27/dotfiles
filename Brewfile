@@ -32,6 +32,7 @@ brew "bat"
 brew "awscli"
 brew "jq"
 brew "fortune"
+brew "figlet"
 
 cask "dotnet-sdk"
 cask "insomnia"

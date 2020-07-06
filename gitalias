@@ -39,7 +39,8 @@
         git diff-select | xargs git add"
     aa = "add *"
     ap = "add -p"
-	yolo = push --force
+	yolo = "!# Force push.;\n\
+        figlet -f smslant 'Y O L O'; git push --force"
 	unstage = "!# Select staged files and Unstage them.;\n\
         git diff-unselect | xargs git reset HEAD"
     sync = "!# Sync with a branch with the same name in the remote repo.;\n\
