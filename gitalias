@@ -39,9 +39,9 @@
         git diff-select | xargs git add"
     aa = "add *"
     ap = "add -p"
-	yolo = "!# Force push.;\n\
+    yolo = "!# Force push.;\n\
         figlet -f smslant 'Y O L O'; git push --force"
-	unstage = "!# Select staged files and Unstage them.;\n\
+    unstage = "!# Select staged files and Unstage them.;\n\
         git diff-unselect | xargs git reset HEAD"
     sync = "!# Sync with a branch with the same name in the remote repo.;\n\
         remote=$( \
@@ -61,8 +61,8 @@
     c = commit
     cm = commit -m
     ca = commit --amend
-	s = status -s -uall
-	l = "log \
+    s = status -s -uall
+    l = "log \
         --color --graph --decorate \
         --date=format:'%Y-%m-%d' \
         --abbrev-commit \
