@@ -30,6 +30,8 @@ plugins=(
   zsh-nvm
   pyenv
   pyenv-lazy
+  fzf
+  fasd
 )
 
 source $ZSH/oh-my-zsh.sh
