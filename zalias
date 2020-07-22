@@ -2,6 +2,7 @@ alias cls="clear && fortune ~/fortunes"
 alias g="git"
 alias please="sudo"
 alias cat="bat"
+alias avlt="aws-vault"
 
 alias charm="pycharm ."
 alias lion="clion ."

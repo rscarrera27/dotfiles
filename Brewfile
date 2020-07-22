@@ -51,6 +51,7 @@ cask "authy"
 cask "docker"
 cask "kitematic"
 cask "karabiner-elements"
+cask "aws-vault"
 
 
 mas "Bear", id: 1091189122
