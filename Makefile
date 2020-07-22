@@ -28,6 +28,7 @@ zsh: | $(OHMYZSH) ## Install the zsh related dotfiles.
 	ln -sfn $(CURDIR)/zalias $(HOME)/.zalias
 	ln -sfn $(CURDIR)/fd $(HOME)/.zfunc/fd
 	ln -sfn $(CURDIR)/gi $(HOME)/.zfunc/gi
+	ln -sfn $(CURDIR)/aregion $(HOME)/.zfunc/aregion
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $(HOME)/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting 2>/dev/null ||:
 	git clone git://github.com/zsh-users/zsh-autosuggestions $(HOME)/.oh-my-zsh/custom/plugins/zsh-autosuggestions 2>/dev/null ||:
 	git clone https://github.com/davidparsson/zsh-pyenv-lazy.git $(HOME)/.oh-my-zsh/custom/plugins/pyenv-lazy 2>/dev/null ||:
