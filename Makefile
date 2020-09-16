@@ -33,6 +33,7 @@ zsh: | $(OHMYZSH) ## Install the zsh related dotfiles.
 	git clone git://github.com/zsh-users/zsh-autosuggestions $(HOME)/.oh-my-zsh/custom/plugins/zsh-autosuggestions 2>/dev/null ||:
 	git clone https://github.com/davidparsson/zsh-pyenv-lazy.git $(HOME)/.oh-my-zsh/custom/plugins/pyenv-lazy 2>/dev/null ||:
 	git clone https://github.com/lukechilds/zsh-nvm $(HOME)/.oh-my-zsh/custom/plugins/zsh-nvm 2>/dev/null ||:
+	ln -sfn $(CURDIR)/starship.toml $(HOME)/.config/starship.toml
 	@echo "Done! (zsh)\n"
 
 $(OHMYZSH):
