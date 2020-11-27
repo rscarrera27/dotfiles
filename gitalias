@@ -67,6 +67,7 @@
         --date=format:'%Y-%m-%d' \
         --abbrev-commit \
         --pretty=format:'%C(red)%h%C(auto)%d %s %C(green)(%cr)%C(bold blue) %an <%ae> %C(green) %GS'"
+    ignore = "!curl -sLw n https://www.gitignore.io/api/$@ > .gitignore"
     alias = "!# Prints all aliases.;\n\
         git config --list \
         | egrep '^alias.+' \
