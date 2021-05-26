@@ -15,6 +15,7 @@ fpath=(
 
 path=(
   $path
+  /usr/local/sbin
   $PYENV_ROOT/bin
   $HOME/.cargo/bin
   $HOME/.poetry/bin
@@ -42,3 +43,10 @@ autoload -Uz ~/.zfunc/**/*
 autoload -Uz compinit && compinit
 
 eval "fortune ~/fortunes"
+
+
+#### FIG ENV VARIABLES ####
+[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
+#### END FIG ENV VARIABLES ####
+
+
