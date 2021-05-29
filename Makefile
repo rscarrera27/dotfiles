@@ -24,6 +24,7 @@ zsh: | $(OHMYZSH) ## Install the zsh related dotfiles.
 	@cp $(CURDIR)/zsecrets $(HOME)/.zsecrets
 	@read -p "Enter your GitHub token: " github_token; \
 		sed -i -e "s/{{GITHUB_TOKEN}}/$$github_token/g" $(HOME)/.zsecrets
+	ln -sfn $(CURDIR)/zprofile $(HOME)/.zprofile
 	ln -sfn $(CURDIR)/zshrc $(HOME)/.zshrc
 	ln -sfn $(CURDIR)/zalias $(HOME)/.zalias
 	ln -sfn $(CURDIR)/fd $(HOME)/.zfunc/fd

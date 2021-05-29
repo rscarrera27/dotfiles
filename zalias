@@ -18,3 +18,5 @@ alias playground="code $HOME/GitHub/playground"
 
 alias ..="cd .."
 alias ...="cd ../.."
+
+alias start_desktop="wakeonlan 2c:f0:5d:95:d3:22"

@@ -5,7 +5,6 @@ export ZSH="$HOME/.oh-my-zsh"
 export NVM_DIR="$HOME/.nvm"
 export NVM_LAZY_LOAD=true
 
-export PYENV_ROOT="$HOME/.pyenv"
 export ZSH_PYENV_LAZY_VIRTUALENV=true
 
 fpath=(
@@ -16,11 +15,12 @@ fpath=(
 path=(
   $path
   /usr/local/sbin
-  $PYENV_ROOT/bin
   $HOME/.cargo/bin
   $HOME/.poetry/bin
   $HOME/.toolbox
   $HOME
+  /usr/local/bin
+  /usr/local/opt
 )
 
 plugins=(
@@ -43,7 +43,6 @@ autoload -Uz ~/.zfunc/**/*
 autoload -Uz compinit && compinit
 
 eval "fortune ~/fortunes"
-
 
 #### FIG ENV VARIABLES ####
 [ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
