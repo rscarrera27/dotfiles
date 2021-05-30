@@ -350,6 +350,8 @@
 	</dict>
 	<key>Default Bookmark Guid</key>
 	<string>EE0F20AA-5783-4A50-BDB2-FF15AECB6186</string>
+	<key>EnableAPIServer</key>
+	<string>1</string>
 	<key>EnableDivisionView</key>
 	<false/>
 	<key>HapticFeedbackForEsc</key>
@@ -2118,7 +2120,5 @@
 	<false/>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
-	<key>findMode_iTerm</key>
-	<integer>0</integer>
 </dict>
 </plist>
