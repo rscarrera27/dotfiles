@@ -1,8 +1,3 @@
-
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the start of this file.
-[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
-#### END FIG ENV VARIABLES ####
 eval "$(starship init zsh)"
 
 export ZSH="$HOME/.oh-my-zsh"
@@ -26,7 +21,6 @@ path=(
   $HOME
   /usr/local/bin
   /usr/local/opt
-  $HOME/.arkade/bin/
 )
 
 plugins=(
@@ -48,31 +42,10 @@ source $HOME/.zalias
 autoload -Uz ~/.zfunc/**/*
 autoload -Uz compinit && compinit
 
-# eval "fortune ~/fortunes"
+eval "fortune ~/fortunes"
 
 #### FIG ENV VARIABLES ####
 [ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
 #### END FIG ENV VARIABLES ####
 
 
-eval export PATH="/Users/seonghyeon/.jenv/shims:${PATH}"
-export JENV_SHELL=zsh
-export JENV_LOADED=1
-unset JAVA_HOME
-source '/usr/local/Cellar/jenv/0.5.4/libexec/libexec/../completions/jenv.zsh'
-jenv rehash 2>/dev/null
-jenv refresh-plugins
-jenv() {
-  typeset command
-  command="$1"
-  if [ "$#" -gt 0 ]; then
-    shift
-  fi
-
-  case "$command" in
-  enable-plugin|rehash|shell|shell-options)
-    eval `jenv "sh-$command" "$@"`;;
-  *)
-    command jenv "$command" "$@";;
-  esac
-}

@@ -1,5 +1,0 @@
-function cloudconf() { 
-    http cloud-config.s.toss.bz/application/$1 \
-    | jq -r '.propertySources[].source | to_entries[] | select( .key | '$2') | [.key, .value] | @tsv' \
-    | column -ts $'\t' ;
-}
