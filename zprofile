@@ -1,14 +1,8 @@
-export PYENV_ROOT="$HOME/.pyenv"
+[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
 
 path=(
   $path
   $PYENV_ROOT/bin
 )
 
-eval "$(pyenv init --path)"
-
-#### FIG ENV VARIABLES ####
 [ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
-#### END FIG ENV VARIABLES ####
-
-

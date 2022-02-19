@@ -24,6 +24,9 @@ zsh: | $(OHMYZSH) ## Install the zsh related dotfiles.
 	@cp $(CURDIR)/zsecrets $(HOME)/.zsecrets
 	@read -p "Enter your GitHub token: " github_token; \
 		sed -i -e "s/{{GITHUB_TOKEN}}/$$github_token/g" $(HOME)/.zsecrets
+	@cp $(CURDIR)/cloudconf $(HOME)/.zfunc/cloudconf
+	@read -p "Enter cloud config server host: : " cloudconf_host; \
+		sed -i -e "s/{{CLOUDCONFIG_HOST}}/$$cloudconf_host/g" $(HOME)/.zfunc/cloudconf
 	ln -sfn $(CURDIR)/zprofile $(HOME)/.zprofile
 	ln -sfn $(CURDIR)/zshrc $(HOME)/.zshrc
 	ln -sfn $(CURDIR)/zalias $(HOME)/.zalias
@@ -34,7 +37,6 @@ zsh: | $(OHMYZSH) ## Install the zsh related dotfiles.
 	git clone git://github.com/zsh-users/zsh-autosuggestions $(HOME)/.oh-my-zsh/custom/plugins/zsh-autosuggestions 2>/dev/null ||:
 	git clone https://github.com/davidparsson/zsh-pyenv-lazy.git $(HOME)/.oh-my-zsh/custom/plugins/pyenv-lazy 2>/dev/null ||:
 	git clone https://github.com/lukechilds/zsh-nvm $(HOME)/.oh-my-zsh/custom/plugins/zsh-nvm 2>/dev/null ||:
-	ln -sfn $(CURDIR)/starship.toml $(HOME)/.config/starship.toml
 	@echo "Done! (zsh)\n"
 
 $(OHMYZSH):
@@ -50,13 +52,6 @@ git: ## Install git configs.
 		sed -i -e "s/{{GIT_EMAIL}}/$$git_email/g" $(HOME)/.gitconfig
 	@read -p "Enter your GPG key ID: " git_sign_key; \
 		sed -i -e "s/{{GIT_SIGN_KEY}}/$$git_sign_key/g" $(HOME)/.gitconfig
-
-.PHONY: haskell
-haskell: | $(HASKELL)
-	ghcup install
-
-$(HASKELL):
-	curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 
 .PHONY: rust
 rust: | $(RUST)

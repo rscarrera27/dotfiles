@@ -1,70 +1,72 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/cask-drivers"
 tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
 
-brew "openssl@1.1"
+brew "awscli"
+brew "bat"
+brew "cask"
+brew "exa"
+brew "fasd"
+brew "figlet"
+brew "fortune"
+brew "fzf"
+brew "gh"
 brew "git"
 brew "git-lfs"
+brew "htop"
+brew "httpie"
+brew "jq"
 brew "mas"
-brew "minimal-racket"
-brew "mysql"
-brew "mysql@5.7", restart_service: true
 brew "neofetch"
 brew "node"
 brew "pyenv"
 brew "pyenv-virtualenv"
-brew "redis", restart_service: true
+brew "pygments"
+brew "starship"
+brew "telnet"
 brew "the_silver_searcher"
 brew "tree"
+brew "watch"
 brew "wget"
 brew "yarn"
 brew "zlib"
 brew "zsh"
 brew "zsh-completions"
-brew "starship"
-brew "fzf"
-brew "pygments"
-brew "nvm"
-brew "exa"
-brew "bat"
-brew "awscli"
-brew "jq"
-brew "fortune"
-brew "figlet"
-brew "fasd"
-
-cask "dotnet-sdk"
-cask "insomnia"
-cask "java"
-cask "jetbrains-toolbox"
-cask "homebrew/cask-versions/sequel-pro-nightly"
-cask "iterm2"
-cask "gpg-suite"
-cask "font-jetbrains-mono"
-cask "google-chrome"
-cask "visual-studio-code"
-cask "gitkraken"
-cask "github"
 cask "authy"
-cask "docker"
-cask "kitematic"
-cask "karabiner-elements"
 cask "aws-vault"
+cask "dotnet-sdk"
+cask "eul"
+cask "fig"
+cask "font-jetbrains-mono"
+cask "github"
+cask "gitkraken"
+cask "google-chrome"
+cask "gpg-suite"
+cask "insomnia"
+cask "iterm2"
+cask "jetbrains-toolbox"
+cask "keepingyouawake"
+cask "macs-fan-control"
+cask "monitorcontrol"
+cask "openinterminal-lite"
+cask "philips-hue-sync"
+cask "raycast"
+cask "sequel-pro-nightly"
+cask "slack"
+cask "spotify"
+cask "visual-studio-code"
 
-
-mas "Bear", id: 1091189122
-mas "Keynote", id: 409183694
+mas "1Password 7", id: 1333542190
+mas "Adblock Plus", id: 1432731683
+mas "GarageBand", id: 682658836
+mas "Hidden Bar", id: 1452453066
 mas "Magnet", id: 441258766
 mas "Messenger", id: 1480068668
-mas "Microsoft Excel", id: 462058435
-mas "Microsoft PowerPoint", id: 462062816
-mas "Microsoft Word", id: 462054704
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
 mas "RunCat", id: 1429033973
 mas "Slack", id: 803453959
-mas "Twitter", id: 1482454543
-mas "Todoist", id: 585829637
-mas "1Password 7", id: 1333542190
+mas "Things", id: 904280696
+mas "베어", id: 1091189122
