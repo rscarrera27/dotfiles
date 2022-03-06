@@ -1,4 +1,0 @@
-function fd {
-  DIR=`find * -maxdepth 0 -type d -print 2> /dev/null | fzf-tmux --preview "tree {} -L 3"` \
-    && cd "$DIR"
-}

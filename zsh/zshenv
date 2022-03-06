@@ -1,0 +1,4 @@
+export ZSH="$HOME/.oh-my-zsh"
+export SDKMAN_DIR="$HOME/.sdkman"
+
+export ZSHENV_SET=1

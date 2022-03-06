@@ -1,0 +1,45 @@
+# Load elemental variables
+[[ ! -v ZSHENV_SET ]] && source $HOME/.zshenv
+source $HOME/.zsecrets
+source $HOME/.zalias
+
+# Declare path to functions
+fpath=(
+  $fpath
+  $HOME/.zfunc
+)
+
+# Declare path to executables
+path=(
+  $HOME
+  $HOME/.toolbox
+  /usr/local/opt
+  /usr/local/bin
+  /usr/local/sbin
+  $path
+)
+
+# Specify plugins to use
+plugins=(
+  git
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+  fzf
+  fasd
+)
+
+# Setup brew environment
+[[ -s /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Setup interactive elements
+(( $+commands[starship] )) && eval "$(starship init zsh)"
+[[ -s $ZSH/oh-my-zsh.sh ]] && source $ZSH/oh-my-zsh.sh
+
+# Setup SDKMAN
+[[ -s $HOME/.sdkman/bin/sdkman-init.sh ]] && source $HOME/.sdkman/bin/sdkman-init.sh
+
+# Loading custom function
+autoload -Uz ~/.zfunc/**/* 
+
+# Finishing initialization
+autoload -Uz compinit && compinit

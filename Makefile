@@ -1,5 +1,4 @@
 BREW := /usr/local/bin/brew
-HASKELL = $(HOME)/.ghcup/bin/ghcup
 RUST := $(HOME))/.cargo/bin/rustup
 POETRY := $(HOME)/.poetry/bin/poetry
 OHMYZSH := $(HOME)/.oh-my-zsh
@@ -20,23 +19,24 @@ $(BREW): ## Install brew if it's not installed already
 .PHONY: zsh 
 zsh: | $(OHMYZSH) ## Install the zsh related dotfiles.
 	@echo "Starting zsh Setup..."
-	mkdir -p $(HOME)/.zfunc
-	@cp $(CURDIR)/zsecrets $(HOME)/.zsecrets
+
+	ln -sfn $(CURDIR)/zsh/zshenv $(HOME)/.zshenv
+	ln -sfn $(CURDIR)/zsh/zshrc $(HOME)/.zshrc
+	ln -sfn $(CURDIR)/zsh/zalias $(HOME)/.zalias
+
+	@cp $(CURDIR)/zsh/zsecrets $(HOME)/.zsecrets
 	@read -p "Enter your GitHub token: " github_token; \
 		sed -i -e "s/{{GITHUB_TOKEN}}/$$github_token/g" $(HOME)/.zsecrets
-	@cp $(CURDIR)/cloudconf $(HOME)/.zfunc/cloudconf
+	@read -p "Enter your GitHub Enterprise token: " github_prvt_token; \
+		sed -i -e "s/{{GITHUB_PRVT_TOKEN}}/$$github_prvt_token/g" $(HOME)/.zsecrets
+	
+	@cp -r $(CURDIR)/zsh/zfunc/. $(HOME)/.zfunc/
 	@read -p "Enter cloud config server host: : " cloudconf_host; \
 		sed -i -e "s/{{CLOUDCONFIG_HOST}}/$$cloudconf_host/g" $(HOME)/.zfunc/cloudconf
-	ln -sfn $(CURDIR)/zprofile $(HOME)/.zprofile
-	ln -sfn $(CURDIR)/zshrc $(HOME)/.zshrc
-	ln -sfn $(CURDIR)/zalias $(HOME)/.zalias
-	ln -sfn $(CURDIR)/fd $(HOME)/.zfunc/fd
-	ln -sfn $(CURDIR)/gi $(HOME)/.zfunc/gi
-	ln -sfn $(CURDIR)/aregion $(HOME)/.zfunc/aregion
+
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $(HOME)/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting 2>/dev/null ||:
 	git clone git://github.com/zsh-users/zsh-autosuggestions $(HOME)/.oh-my-zsh/custom/plugins/zsh-autosuggestions 2>/dev/null ||:
-	git clone https://github.com/davidparsson/zsh-pyenv-lazy.git $(HOME)/.oh-my-zsh/custom/plugins/pyenv-lazy 2>/dev/null ||:
-	git clone https://github.com/lukechilds/zsh-nvm $(HOME)/.oh-my-zsh/custom/plugins/zsh-nvm 2>/dev/null ||:
+	
 	@echo "Done! (zsh)\n"
 
 $(OHMYZSH):
@@ -44,8 +44,8 @@ $(OHMYZSH):
 
 .PHONY: git
 git: ## Install git configs.
-	ln -sfn $(CURDIR)/gitalias $(HOME)/.gitalias
-	@cp $(CURDIR)/gitconfig $(HOME)/.gitconfig
+	ln -sfn $(CURDIR)/git/gitalias $(HOME)/.gitalias
+	@cp $(CURDIR)/git/gitconfig $(HOME)/.gitconfig
 	@read -p "Enter your name: " git_name; \
 		sed -i -e "s/{{GIT_NAME}}/$$git_name/g" $(HOME)/.gitconfig
 	@read -p "Enter your e-mail: " git_email; \
