@@ -35,11 +35,8 @@ plugins=(
 (( $+commands[starship] )) && eval "$(starship init zsh)"
 [[ -s $ZSH/oh-my-zsh.sh ]] && source $ZSH/oh-my-zsh.sh
 
-# Setup SDKMAN
-[[ -s $HOME/.sdkman/bin/sdkman-init.sh ]] && source $HOME/.sdkman/bin/sdkman-init.sh
-
-# Loading custom function
-autoload -Uz ~/.zfunc/**/* 
+# Setup ASDF
+[[ -s /opt/homebrew/opt/asdf/libexec/asdf.sh ]] && source /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # Finishing initialization
 autoload -Uz compinit && compinit
