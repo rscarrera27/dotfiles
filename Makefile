@@ -1,4 +1,4 @@
-GPG_KEY := D7D64144
+GPG_KEY := F2C42F6C
 GPG_DIR := $(CURDIR)/.gpg
 
 .PHONY: apply
