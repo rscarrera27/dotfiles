@@ -4,13 +4,20 @@ GPG_DIR := $(CURDIR)/.gpg
 .PHONY: apply
 apply:
 	@xcode-select -p >/dev/null 2>&1 || (xcode-select --install && echo "Install Xcode CLT and re-run make" && exit 1)
-	@test -d $(GPG_DIR) || (echo "ERROR: .gpg/ not found. Run 'make gpg-export' on the old machine first." && exit 1)
-	sh -c "$$(curl -fsLS get.chezmoi.io)" -- init --apply --source $(CURDIR)
-	gpg --import $(GPG_DIR)/public.asc
-	gpg --import $(GPG_DIR)/secret.asc
-	gpg --import-ownertrust $(GPG_DIR)/ownertrust.txt
-	rm -rf $(GPG_DIR)
-	@echo "GPG key imported and .gpg/ removed."
+	@gpg --list-secret-keys $(GPG_KEY) >/dev/null 2>&1 || test -d $(GPG_DIR) || \
+		(echo "ERROR: GPG key not found and .gpg/ not present. Run 'make gpg-export' on the old machine first." && exit 1)
+	@if command -v chezmoi >/dev/null 2>&1; then \
+		chezmoi init --apply --source $(CURDIR); \
+	else \
+		sh -c "$$(curl -fsLS get.chezmoi.io)" -- init --apply --source $(CURDIR); \
+	fi
+	@if [ -d "$(GPG_DIR)" ]; then \
+		gpg --import $(GPG_DIR)/public.asc; \
+		gpg --import $(GPG_DIR)/secret.asc; \
+		gpg --import-ownertrust $(GPG_DIR)/ownertrust.txt; \
+		rm -rf $(GPG_DIR); \
+		echo "GPG key imported and .gpg/ removed."; \
+	fi
 
 .PHONY: gpg-export
 gpg-export:
