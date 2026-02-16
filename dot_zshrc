@@ -1,17 +1,19 @@
 # Load elemental variables
 [[ ! -v ZSHENV_SET ]] && source $HOME/.zshenv
-source $HOME/.zsecrets
 source $HOME/.zalias
+
+# Setup brew environment
+[[ -s /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Declare path to functions
 fpath=(
-  $fpath
   $HOME/.zfunc
+  $fpath
 )
 
 # Declare path to executables
 path=(
-  $HOME
+  $HOME/.local/bin
   $HOME/.toolbox
   /usr/local/opt
   /usr/local/bin
@@ -25,18 +27,12 @@ plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
   fzf
-  fasd
 )
 
-# Setup brew environment
-[[ -s /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
-
 # Setup interactive elements
-(( $+commands[starship] )) && eval "$(starship init zsh)"
 [[ -s $ZSH/oh-my-zsh.sh ]] && source $ZSH/oh-my-zsh.sh
+(( $+commands[starship] )) && eval "$(starship init zsh)"
 
-# Setup ASDF
-[[ -s /opt/homebrew/opt/asdf/libexec/asdf.sh ]] && source /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-# Finishing initialization
-autoload -Uz compinit && compinit
+# Setup mise
+(( $+commands[mise] )) && eval "$(mise activate zsh)"
+[[ -s $HOME/.local/bin/env ]] && source $HOME/.local/bin/env

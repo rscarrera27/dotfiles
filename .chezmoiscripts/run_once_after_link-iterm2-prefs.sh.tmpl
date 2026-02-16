@@ -1,0 +1,4 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+ln -sfn {{ joinPath .chezmoi.sourceDir "com.googlecode.iterm2.plist" | quote }} ~/Library/Preferences/com.googlecode.iterm2.plist
+{{ end -}}

@@ -1,9 +1,9 @@
 [user]
-	name = {{GIT_NAME}}
-	email = {{GIT_EMAIL}}
-    signingkey = {{GIT_SIGN_KEY}}
+	name = {{ .git_name }}
+	email = {{ .git_email }}
+	signingkey = {{ .git_sign_key }}
 [commit]
-    gpgsign = true
+	gpgsign = true
 [core]
 	precomposeunicode = true
 	quotepath = false
@@ -16,5 +16,3 @@
 	rebase = true
 [rebase]
 	autoStash = true
-[include]
-    path = ~/.gitalias

@@ -1,0 +1,26 @@
+[tasks.java]
+description = "Install Java via fzf selection"
+run = """
+echo "Select Java version to install"
+JAVA_VER=$(mise ls-remote java | fzf --height 40%)
+mise install java@$JAVA_VER
+mise use -g java@$JAVA_VER
+"""
+
+[tasks.python]
+description = "Install Python via fzf selection"
+run = """
+echo "Select Python version to install"
+PY_VER=$(mise ls-remote python | fzf --height 40%)
+mise install python@$PY_VER
+mise use -g python@$PY_VER
+"""
+
+[tasks.node]
+description = "Install Node via fzf selection"
+run = """
+echo "Select Node version to install"
+NODE_VER=$(mise ls-remote node | fzf --height 40%)
+mise install node@$NODE_VER
+mise use -g node@$NODE_VER
+"""
