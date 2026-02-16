@@ -6,7 +6,11 @@ apply:
 	@xcode-select -p >/dev/null 2>&1 || (xcode-select --install && echo "Install Xcode CLT and re-run make" && exit 1)
 	@gpg --list-secret-keys $(GPG_KEY) >/dev/null 2>&1 || test -d $(GPG_DIR) || \
 		(echo "ERROR: GPG key not found and .gpg/ not present. Run 'make gpg-export' on the old machine first." && exit 1)
-	sh -c "$$(curl -fsLS get.chezmoi.io)" -- init --apply --source $(CURDIR)
+	@if command -v chezmoi >/dev/null 2>&1; then \
+		chezmoi init --apply --source $(CURDIR); \
+	else \
+		sh -c "$$(curl -fsLS get.chezmoi.io)" -- init --apply --source $(CURDIR); \
+	fi
 	@if [ -d "$(GPG_DIR)" ]; then \
 		gpg --import $(GPG_DIR)/public.asc; \
 		gpg --import $(GPG_DIR)/secret.asc; \
