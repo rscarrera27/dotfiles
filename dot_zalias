@@ -5,5 +5,9 @@ alias cat="bat"
 alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 alias now="date -R && date -Ru && date -u +\"Epoch: %s\""
 
+alias cc="claude"
+alias oc="openclaw"
+alias cdx="codex"
+
 alias ..="cd .."
 alias ...="cd ../.."
