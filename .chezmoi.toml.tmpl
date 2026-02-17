@@ -1,4 +1,8 @@
 sourceDir = {{ joinPath .chezmoi.homeDir "dotfiles" | quote }}
+encryption = "gpg"
+
+[gpg]
+    recipient = "F2C42F6C"
 
 [data]
     git_name = "Sunghyun Kim"
