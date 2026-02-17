@@ -44,4 +44,4 @@ chezmoi는 `before` → main(파일 배포 + `onchange`) → `after` 순서로 �
 - **dotfile 내용 변경**: `dot_*` 파일을 직접 편집. `chezmoi apply`로 반영.
 - **새 dotfile 추가**: `dot_파일명` 네이밍으로 생성, 배포 불필요 시 `.chezmoiignore`에 추가.
 - **Brewfile 변경**: `run_onchange_brew-bundle.sh.tmpl`이 Brewfile 해시를 추적하므로 다음 `chezmoi apply` 시 자동 재실행.
-- **새 스크립트 추가**: `.chezmoiscripts/`에 `run_{once,onchange}_{before,after}_이름.sh` 패턴으로 생성. 실행 순서는 before/after 단계와 알파벳순으로 결정됨.
+- **새 스크립트 추가**: `.chezmoiscripts/`에 `run_{before,after}_이름.sh` 패턴으로 생성. 모든 스크립트는 매 apply마다 실행되므로 반드시 내부에 멱등성 가드를 포함해야 함. 실행 순서는 before/after 단계와 알파벳순으로 결정됨.

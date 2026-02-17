@@ -32,11 +32,12 @@ cd ~/dotfiles && make gpg-import
 
 | 순서 | 스크립트 | 동작 |
 |---|---|---|
-| 1 | `run_once_before_install-homebrew` | Homebrew 설치 |
-| 2 | `run_once_before_install-ohmyzsh` | oh-my-zsh 설치 |
+| 1 | `run_before_install-homebrew` | Homebrew 설치 |
+| 2 | `run_before_install-ohmyzsh` | oh-my-zsh 설치 |
 | 3 | `run_onchange_brew-bundle` | `brew bundle` 실행 (Brewfile 변경 시 재실행) |
-| 4 | `run_once_after_clone-zsh-plugins` | zsh-syntax-highlighting, zsh-autosuggestions 설치 |
-| 5 | `run_once_after_install-ai-tools` | Claude Code 설치 |
+| 4 | `run_after_clone-zsh-plugins` | zsh 플러그인 설치 |
+| 5 | `run_after_link-iterm2-prefs` | iTerm2 설정 심링크 |
+| 6 | `run_after_install-ai-tools` | Claude Code 설치 |
 
 ## 배포되는 dotfiles
 
