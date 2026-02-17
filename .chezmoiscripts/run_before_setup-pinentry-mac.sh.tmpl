@@ -1,0 +1,13 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+PINENTRY="/opt/homebrew/bin/pinentry-mac"
+
+if [ ! -f "$PINENTRY" ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv 2>/dev/null)"
+  brew install pinentry-mac
+fi
+
+mkdir -p "$HOME/.gnupg"
+echo "pinentry-program $PINENTRY" > "$HOME/.gnupg/gpg-agent.conf"
+gpgconf --kill gpg-agent
+{{ end -}}
