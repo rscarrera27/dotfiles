@@ -1,0 +1,9 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+VSCODE_USER_DIR="$HOME/Library/Application Support/Code/User"
+SOURCE_DIR={{ joinPath .chezmoi.sourceDir "vscode" | quote }}
+
+mkdir -p "$VSCODE_USER_DIR"
+ln -sfn "$SOURCE_DIR/settings.json" "$VSCODE_USER_DIR/settings.json"
+ln -sfn "$SOURCE_DIR/keybindings.json" "$VSCODE_USER_DIR/keybindings.json"
+{{ end -}}
